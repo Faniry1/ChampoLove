@@ -5,6 +5,9 @@ import java.util.Observable;
 
 public class Modele extends Observable implements Serializable{
 	
+	public static String mois[] = {"Janvier","Février","Mars","Avril","Mai","Juin",
+			"Juillet","Aout","Septembre","Octobre","Novembre","Décembre"};
+	public static String sexe[] = {"Autre","Homme","Femme"};
 	private int etatJeu;
 	
 	public Modele() {
@@ -20,4 +23,5 @@ public class Modele extends Observable implements Serializable{
 		this.setChanged();
 		this.notifyObservers();
 	}
+
 }
