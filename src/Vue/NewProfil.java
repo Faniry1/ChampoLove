@@ -1,6 +1,7 @@
 package Vue;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 
 import javax.swing.*;
@@ -13,15 +14,19 @@ public class NewProfil extends JFrame{
 	// Limiter la zone de texte
 	// JTextArea nom1 = new JTextArea(); nom1.setLineWrap(true); nom1.setWrapStyleWord(true);
 	
-	public NewProfil() {
+	public NewProfil(MouseListener ctrl) {
 		int x =9;
         
 		this.setSize(taille);
 		this.setLayout(new BorderLayout());
 		
 		JPanel haut = new JPanel();
+		JButton rmenu = new JButton("Retour MENU");
 		JLabel titre = new JLabel("NOUVEAU PROFIL");
+		rmenu.setBackground(Color.red);
+		rmenu.addMouseListener(ctrl);
 		titre.setForeground(Color.blue);
+		haut.add(rmenu);
 		haut.add(titre);
 		
 		JPanel infos = new JPanel();

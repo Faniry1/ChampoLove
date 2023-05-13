@@ -21,6 +21,9 @@ public class Controleur implements MouseListener{
 		if (boutonTxt=="PROFILS") {
 			m.setEtatJeu(1);
 		}
+		else if (boutonTxt=="Retour MENU") {
+			m.setEtatJeu(0);
+		}
 		else if (boutonTxt=="NOUVEAU PROFIL") {
 			m.setEtatJeu(2);
 		}

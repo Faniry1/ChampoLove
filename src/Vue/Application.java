@@ -11,13 +11,15 @@ public class Application implements Observer{
 	private Modele mod;
 	private Controleur ctrl;
 	private Menu menu;
+	private Profils profil;
 	private NewProfil nprof;
 	
 	public Application() {
 		mod = new Modele();
 		ctrl = new Controleur(mod);
 		menu = new Menu(ctrl);
-		nprof = new NewProfil();
+		profil = new Profils();
+		nprof = new NewProfil(ctrl);
 		
 		mod.addObserver(this);
 	}
@@ -27,10 +29,17 @@ public class Application implements Observer{
 		// TODO Auto-generated method stub
 		System.out.println(mod.getEtatJeu());
 		if (mod.getEtatJeu()==0) {
+			this.profil.setVisible(false);
 			this.nprof.setVisible(false);
 			this.menu.setVisible(true);
 		}
+		else if (mod.getEtatJeu()==1) {
+			this.profil.setVisible(true);
+			this.menu.setVisible(false);
+			this.nprof.setVisible(false);
+		}
 		else if (mod.getEtatJeu()==2) {
+			this.profil.setVisible(false);
 			this.menu.setVisible(false);
 			this.nprof.setVisible(true);
 		}
