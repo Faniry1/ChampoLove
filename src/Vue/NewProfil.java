@@ -11,6 +11,9 @@ public class NewProfil extends JFrame{
 	private Toolkit outil = getToolkit();
 	private Dimension taille = outil.getScreenSize();
 	
+	private JLabel profilvalide = new JLabel("Profil Créé");
+	private JLabel profilinvalide = new JLabel("Profil Invalide");
+	
 	// Limiter la zone de texte
 	// JTextArea nom1 = new JTextArea(); nom1.setLineWrap(true); nom1.setWrapStyleWord(true);
 	
@@ -18,8 +21,10 @@ public class NewProfil extends JFrame{
 		int x =9;
         
 		this.setSize(taille);
+		this.setUndecorated(true);
 		this.setLayout(new BorderLayout());
 		
+		// Titre de la page
 		JPanel haut = new JPanel();
 		JButton rmenu = new JButton("Retour MENU");
 		JLabel titre = new JLabel("NOUVEAU PROFIL");
@@ -34,7 +39,7 @@ public class NewProfil extends JFrame{
 		
 		JPanel infoperso = new JPanel();
 		infoperso.setBackground(Color.pink);
-		infoperso.setLayout(new GridLayout(x,2));
+		infoperso.setLayout(new GridLayout(x+1,2));
 		JLabel tt = new JLabel("INFORMATIONS PERSONELLES : "); JLabel tt1 = new JLabel("");
 		tt.setForeground(Color.red);
 		JLabel nom = new JLabel("NOM : "); JTextField nom1 = new JTextField();
@@ -46,10 +51,11 @@ public class NewProfil extends JFrame{
 		JLabel daten = new JLabel("Date de Naissance : "); 
 		Calendrier datenaiss = new Calendrier("Date de Naissance");
 		JLabel sexe = new JLabel("SEXE : "); JComboBox sexe1 = new JComboBox(Modele.Modele.sexe);
+		JLabel ville = new JLabel("VOTRE DEPARTEMENT : ");JTextField ville1 = new JTextField();
 		infoperso.add(tt);infoperso.add(tt1);
 		infoperso.add(nom);infoperso.add(nom1); infoperso.add(prenom);infoperso.add(prenom1);
 		infoperso.add(age);infoperso.add(age1); infoperso.add(sexe);infoperso.add(sexe1);
-		infoperso.add(daten);infoperso.add(datenaiss);
+		infoperso.add(daten);infoperso.add(datenaiss);infoperso.add(ville);infoperso.add(ville1); 
 		infoperso.add(tel);infoperso.add(tel1);
 		infoperso.add(email);infoperso.add(email1);
 		
@@ -84,8 +90,10 @@ public class NewProfil extends JFrame{
 		JLabel taillea = new JLabel("TAILLE(CM) : "); JSpinner taillea1 = new JSpinner(taillemod);
 		JLabel at = new JLabel("Vos Attentes : "); JTextArea at1 = new JTextArea(); 
 		at1.setLineWrap(true); at1.setWrapStyleWord(true);
+		JLabel villea = new JLabel("DEPARTEMENT : ");JTextField villea1 = new JTextField();
 		attentes.add(t);attentes.add(t2); attentes.add(agea);attentes.add(agea1);
-		attentes.add(sexea);attentes.add(sexea1); attentes.add(poida);attentes.add(poida1);
+		attentes.add(sexea);attentes.add(sexea1); attentes.add(villea);attentes.add(villea1); 
+		attentes.add(poida);attentes.add(poida1);
 		attentes.add(taillea);attentes.add(taillea1);
 		attentes.add(at);attentes.add(at1);
 		
@@ -93,7 +101,15 @@ public class NewProfil extends JFrame{
 		infos.add(description);
 		infos.add(attentes);
 		
+		JPanel registerprofil = new JPanel();
+		registerprofil.setLayout(new GridLayout(3,1));
+		JButton registerbtn = new JButton("Enregistrer le Profil");
+		registerprofil.add(profilvalide);
+		registerprofil.add(profilinvalide);
+		registerprofil.add(registerbtn);
+		
 		this.add(haut,BorderLayout.NORTH);
 		this.add(infos,BorderLayout.CENTER);
+		this.add(registerprofil,BorderLayout.SOUTH);
 	}
 }

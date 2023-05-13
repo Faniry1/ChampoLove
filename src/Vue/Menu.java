@@ -12,6 +12,7 @@ public class Menu extends JFrame{
 	
 	public Menu(MouseListener m) {
 		this.setSize(taille);
+		this.setUndecorated(true);
 		
 		JPanel titre = new JPanel();
 		JLabel logo = new JLabel();
