@@ -18,7 +18,7 @@ public class Application implements Observer{
 		mod = new Modele();
 		ctrl = new Controleur(mod);
 		menu = new Menu(ctrl);
-		profil = new Profils();
+		profil = new Profils(ctrl);
 		nprof = new NewProfil(ctrl);
 		
 		mod.addObserver(this);
@@ -27,7 +27,6 @@ public class Application implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		System.out.println(mod.getEtatJeu());
 		if (mod.getEtatJeu()==0) {
 			this.profil.setVisible(false);
 			this.nprof.setVisible(false);
